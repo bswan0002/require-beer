@@ -17,14 +17,16 @@
   <tbody>
     <% @projects.each do |project| %>
       <tr>
-        <td><%= project.user_id %></td>
+        <td><%= project.user.email %></td>
         <td><%= project.title %></td>
         <td><%= project.desc %></td>
         <td><%= project.vidlink %></td>
         <td><%= project.gitlink %></td>
         <td><%= link_to 'Show', project %></td>
-        <td><%= link_to 'Edit', edit_project_path(project) %></td>
-        <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if admin? %>
+          <td><%= link_to 'Edit', edit_project_path(project) %></td>
+          <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +34,6 @@
 
 <br>
 
-<%= link_to 'New Project', new_project_path %>
+<% if admin? %>
+  <%= link_to 'New Project', new_project_path %>
+<% end %>
