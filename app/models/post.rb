@@ -6,4 +6,8 @@ class Post < ApplicationRecord
   has_many :users, through: :comments
 
   validates_presence_of :title, :body
+
+  def liked?(user)
+    !!self.likes.find{|like| like.user_id == user.id}
+  end
 end

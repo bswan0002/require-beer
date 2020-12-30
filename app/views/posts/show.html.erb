@@ -13,6 +13,14 @@
   <%= @post.user.email %>
 </p>
 
+<% if user_signed_in? %>
+  <% if @post.liked?(current_user) %>
+    <%= button_to "Like", like_path(@post), method: "put", disabled: true %>
+  <% else %>
+    <%= button_to "Like", like_path(@post), method: "put" %>
+  <% end %>
+<% end %>
+
 <% if current_user && current_user.admin %>
   <%= link_to 'Edit', edit_post_path(@post) %> |
 <% end %>

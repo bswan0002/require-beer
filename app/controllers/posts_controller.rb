@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :like]
   before_action :authenticate_user!, except: [:show, :index]
 
   # GET /posts
@@ -61,6 +61,11 @@ class PostsController < ApplicationController
       format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def like
+    Like.create(user_id: current_user.id, post_id: @post.id)
+    redirect_to post_path(@post)
   end
 
   private
