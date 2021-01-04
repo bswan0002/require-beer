@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :projects
-  resources :posts
+  resources :posts do
+    resources :comments
+  end 
 
   put '/post/:id/like', to: 'posts#like', as: 'like'
 

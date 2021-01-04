@@ -23,6 +23,7 @@
   <strong>Gitlink:</strong>
   <%= @project.gitlink %>
 </p>
-
-<%= link_to 'Edit', edit_project_path(@project) %> |
+<% if admin? %>
+  <%= link_to 'Edit', edit_project_path(@project) %> |
+<% end %> 
 <%= link_to 'Back', projects_path %>
