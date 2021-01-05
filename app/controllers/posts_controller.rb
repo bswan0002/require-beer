@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy, :like]
-  before_action :authenticate_user!, except: [:show, :index]
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :like, :unlike]
+  before_action :authenticate_user!, except: [:show, :index, :sort_by_col]
 
   # GET /posts
   # GET /posts.json
@@ -67,6 +67,36 @@ class PostsController < ApplicationController
   def like
     Like.create(user_id: current_user.id, post_id: @post.id)
     redirect_to post_path(@post)
+  end
+
+  def unlike
+    @like = Like.find_by(user_id: current_user.id, post_id: params[:id])
+    @like.destroy
+    redirect_to post_path(@post)
+  end
+
+  def sort_by_col
+    case params[:c]
+    when "titleAsc"
+      @posts = Post.order('title ASC')
+    when "titleDesc"
+      @posts = Post.order('title DESC')
+    when "authorAsc"
+      @posts = Post.all.sort_by {|p| p.user.email}
+    when "authorDesc"
+      @posts = Post.all.sort_by {|p| p.user.email}.reverse
+    when "publishedAsc"
+      @posts = Post.order('created_at ASC')
+    when "publishedDesc"
+      @posts = Post.order('created_at DESC')
+    when "likesDesc"
+      @posts = Post.all.sort_by {|p| p.likes.count}.reverse
+    when "likesAsc"
+      @posts = Post.all.sort_by {|p| p.likes.count}
+    end
+
+    @sort = params[:c]
+    render :index
   end
 
   private
