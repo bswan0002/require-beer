@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy, :like]
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :like, :unlike]
   before_action :authenticate_user!, except: [:show, :index]
 
   # GET /posts
@@ -66,6 +66,12 @@ class PostsController < ApplicationController
 
   def like
     Like.create(user_id: current_user.id, post_id: @post.id)
+    redirect_to post_path(@post)
+  end
+
+  def unlike
+    @like = Like.find_by(user_id: current_user.id, post_id: params[:id])
+    @like.destroy
     redirect_to post_path(@post)
   end
 
