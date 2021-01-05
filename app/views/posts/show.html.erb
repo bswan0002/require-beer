@@ -1,16 +1,11 @@
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
+<h1><%= @post.title %></h1>
+
+<h2>
+  by <%= @post.user.email %>
+</h2>
 
 <p>
-  <strong>Body:</strong>
-  <%= @post.body %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @post.user.email %>
+  <%= @post.content %>
 </p>
 
 <% if admin? %>
@@ -34,8 +29,9 @@
       <%= f.submit "Comment" %>
     </div>
   <% end %>
-<% end %>
+<% end %><br>
 
+<h3>Comments</h3>
 <% @comments.each do |comment| %>
   <% if comment.user %>
     <%= "#{comment.user.email}: #{comment.body}" %><br>
