@@ -13,10 +13,35 @@
   background-image: url(https://icons.iconarchive.com/icons/icons8/ios7/24/Arrows-Down-icon.png);
 }
 
+th {
+  color: white;
+}
+
+a {
+  color: #AAFF2A;
+}
+
+a:hover {
+  color: #82C223;
+}
 
 body {
-  background: #333;
+  background: #232425;
   color: #fff;
+}
+
+.btn-primary {
+  color: white;
+  background: #6EA31E;
+  border-color: #6EA31E;
+
+
+}
+
+.btn-primary:hover {
+  background: #82C223;
+  border-color: #82C223;
+  color: white;
 }
 
 .navbar {
@@ -48,6 +73,20 @@ body {
 
 }
 
-.navbar-custom {
-  background-color: red !important;
- }
+.card {
+  .card-header {
+    background: #5A5A59;
+  }
+
+  .card-body {
+    background: #333;
+  }
+}
+
+.card:hover {
+  border-color: #AAFF2A;
+}
+
+// .navbar-custom {
+//   background-color: red !important;
+//  }
