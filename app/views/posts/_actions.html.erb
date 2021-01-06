@@ -1,0 +1,7 @@
+<div class="row row-cols-auto">
+  <% if admin? %>
+    <div class="col"><%= button_to 'Edit', edit_post_path(@post), class: "btn btn-primary" %></div>
+    <div class="col"><%= button_to 'Delete', @post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></div>
+  <% end %>
+  <div class="col"><%= button_to 'Back', posts_path, class: "btn btn-secondary" %></div>  
+</div>

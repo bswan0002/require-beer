@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy, :like, :unlike]
+  before_action :set_last_row, only: [:index, :sort_by_col]
   before_action :authenticate_user!, except: [:show, :index, :sort_by_col]
 
   # GET /posts
@@ -103,6 +104,10 @@ class PostsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_post
       @post = Post.find(params[:id])
+    end
+
+    def set_last_row
+      @last_row = Post.last_row
     end
 
     # Only allow a list of trusted parameters through.

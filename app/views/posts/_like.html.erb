@@ -1,0 +1,6 @@
+<% if @post.liked?(current_user) %>
+  <p>You like this post</p>
+  <%= button_to "Like", unlike_path(@post), method: "delete", class: "btn btn-success" %>
+<% else %>
+  <%= button_to "Like", like_path(@post), method: "put", class: "btn btn-light" %>
+<% end %>
