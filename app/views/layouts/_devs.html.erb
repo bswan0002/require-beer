@@ -1,13 +1,7 @@
-<!-- <div>
-  link_to "Home", root_path %>
-  link_to "Posts", posts_path %>
-  link_to "Projects", projects_path %>
-  link_to "Devs", devs_path %>
-</div> -->
 <body data-spy="scroll" data-target="#main-nav" id="home">
   <nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top" id="main-nav">
     <div class="container">
-      <a class="navbar-brand active" href="<%= root_path %>">
+      <a class="navbar-brand" href="<%= root_path %>">
         <!-- <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/openmoji/272/beer-mug_1f37a.png">  -->
         RequireBeer</a>
       <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
@@ -15,13 +9,13 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item ">
+          <li class="nav-item">
             <a href="<%= posts_path %>" class="nav-link">Posts</a>
           </li>
           <li class="nav-item">
             <a href="<%= projects_path %>" class="nav-link">Projects</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item active">
             <a href="<%= devs_path %>" class="nav-link">Devs</a>
           </li>
         </ul>
