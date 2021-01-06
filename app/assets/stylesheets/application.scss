@@ -1,1 +1,14 @@
 @import 'trix/dist/trix.css';
+
+.pretty th .current {
+  padding-right: 20px;
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+.pretty th .asc { 
+  background-image: url(https://icons.iconarchive.com/icons/icons8/ios7/24/Arrows-Up-icon.png); 
+}
+
+.pretty th .desc { 
+  background-image: url(https://icons.iconarchive.com/icons/icons8/ios7/24/Arrows-Down-icon.png); 
+}
