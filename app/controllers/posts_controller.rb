@@ -78,21 +78,21 @@ class PostsController < ApplicationController
   def sort_by_col
     case params[:c]
     when "title_asc"
-      @posts = Post.order('title ASC')
+      @posts = Post.title_asc
     when "title_desc"
-      @posts = Post.order('title DESC')
+      @posts = Post.title_desc
     when "author_asc"
-      @posts = Post.all.sort_by {|p| p.user.email}
+      @posts = Post.author_asc
     when "author_desc"
-      @posts = Post.all.sort_by {|p| p.user.email}.reverse
+      @posts = Post.author_desc
     when "published_asc"
-      @posts = Post.order('created_at ASC')
+      @posts = Post.published_asc
     when "published_desc"
-      @posts = Post.order('created_at DESC')
-    when "likes_desc"
-      @posts = Post.all.sort_by {|p| p.likes.count}.reverse
+      @posts = Post.published_desc
     when "likes_asc"
-      @posts = Post.all.sort_by {|p| p.likes.count}
+      @posts = Post.likes_asc
+    when "likes_desc"
+      @posts = Post.likes_desc
     end
 
     @sort = params[:c]
