@@ -3,10 +3,11 @@ Rails.application.routes.draw do
 
   get '/posts/sort_by_col', to: 'posts#sort_by_col', as: 'sort_by_col'
 
+  resources :devs, only: [:index, :show]
   resources :projects
   resources :posts do
     resources :comments
-  end 
+  end
 
   put '/post/:id/like', to: 'posts#like', as: 'like'
   
