@@ -1,7 +1,7 @@
+<%= render 'layouts/posts' %>
 <p id="notice"><%= notice %></p>
 
 <div>
-  <h1>Posts</h1>
   <% if admin? %>
     <%= link_to 'New Post', new_post_path %><br>
   <% end %>
@@ -36,4 +36,3 @@
 </table>
 
 <br>
-

@@ -5,10 +5,49 @@
   background-repeat: no-repeat;
   background-position: right center;
 }
-.pretty th .asc { 
-  background-image: url(https://icons.iconarchive.com/icons/icons8/ios7/24/Arrows-Up-icon.png); 
+.pretty th .asc {
+  background-image: url(https://icons.iconarchive.com/icons/icons8/ios7/24/Arrows-Up-icon.png);
 }
 
-.pretty th .desc { 
-  background-image: url(https://icons.iconarchive.com/icons/icons8/ios7/24/Arrows-Down-icon.png); 
+.pretty th .desc {
+  background-image: url(https://icons.iconarchive.com/icons/icons8/ios7/24/Arrows-Down-icon.png);
 }
+
+
+body {
+  background: #333;
+  color: #fff;
+}
+
+.navbar {
+  background: #000A14 !important;
+  border-bottom: #AAFF2A 3px solid;
+  opacity: .75;
+
+  .nav-link {
+    font-size: 14px;
+    text-transform: uppercase;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  .nav-item.active {
+    border-left: #444 3px solid;
+    color: #fff;
+    font-weight: bold;
+
+    a{
+      color: white !important;
+    }
+  }
+
+  .navbar-brand.active {
+    font-weight: bold;
+  }
+
+
+}
+
+.navbar-custom {
+  background-color: red !important;
+ }
