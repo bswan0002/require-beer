@@ -20,11 +20,18 @@ module ApplicationHelper
   def filterable(fparam)
     if @filter && @filter.include?(fparam)
       dir = @filter.split("+").last
-      dir == "fwd" ? new_dir = "bkwd" : new_dir = "fwd"
+      if dir == "fwd"
+        new_dir = "bkwd"
+        css_class = "current filtered"
+      else
+        new_dir = "fwd"
+        css_class = "current"
+      end
     else
       new_dir = "fwd"
+      css_class = "current"
     end
-    css_class = "current"
+    
     link_to fparam.titleize, filter_by_fparam_path(f: "#{fparam}+#{new_dir}"), {:class => css_class}
   end
 
