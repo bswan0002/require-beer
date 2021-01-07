@@ -13,7 +13,7 @@
         <%= render partial: "pcard", locals: {post: @posts[i]} %>
       <% end %>
     </div>
-  <% end %>
+  <% else %>
   <% i=0; while i<@posts.count-3 %>
     <div class="row mt-4">
       <%= render partial: "pcard", locals: {post: @posts[i]} %>
@@ -29,4 +29,5 @@
       <%= render partial: "pcard", locals: {post: @posts[-@last_row+i]} %>
     <% end %>
   </div>
+  <% end %>
 </div>
