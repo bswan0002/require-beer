@@ -1,41 +1,30 @@
 <%= render 'layouts/projects' %>
-<h1>
-  <strong>Project Title:</strong>
-  <%= @project.title %>
-</h1>
+<div class="container">
+  <h1><%= @project.title %> | <%= link_to @project.user.email, dev_path(@project.user) %></h1>
 
-<p>
-  <strong>User:</strong>
-  <%= @project.user_id %>
-</p>
+  <p><%= @project.desc %></p>
 
-
-
-<p>
-  <strong>Desc:</strong>
-  <%= @project.desc %>
-</p>
-
-<p>
-  <strong>Project Video</strong>
-  <br />
-  <% video_id = YouTubeAddy.extract_video_id(@project.vidlink) %>
-  <iframe width="854" height="480" src="http://www.youtube.com/embed/<%= video_id %>" frameborder="0" allowfullscreen></iframe>
-  <br />
-</p>
+  <p>
+    <strong>Project Video</strong>
+    <br />
+    <% video_id = YouTubeAddy.extract_video_id(@project.vidlink) %>
+    <iframe width="854" height="480" src="http://www.youtube.com/embed/<%= video_id %>" frameborder="0" allowfullscreen></iframe>
+    <br />
+  </p>
 
 
-<p>
-  <strong>Project Link:</strong>
-  <a href="<%= @project.gitlink %>"> Github Repository </a>
-</p>
+  <p>
+    <strong>Project Link:</strong>
+    <a href="<%= @project.gitlink %>"> Github Repository </a>
+  </p>
 
-<a href="<%= @project.gitlink %>">
- <img src="https://www.flaticon.com/svg/static/icons/svg/25/25231.svg" width=75 height=75>
-</a> <br />
+  <a href="<%= @project.gitlink %>">
+  <img src="https://www.flaticon.com/svg/static/icons/svg/25/25231.svg" width=75 height=75>
+  </a> <br />
 
 
-<% if admin? %>
-  <%= link_to 'Edit', edit_project_path(@project) %> |
-<% end %>
-<%= link_to 'Back', projects_path %>
+  <% if admin? %>
+    <%= link_to 'Edit', edit_project_path(@project) %> |
+  <% end %>
+  <%= link_to 'Back', projects_path %>
+</div>

@@ -1,7 +1,6 @@
 <%= render 'layouts/posts' %>
 <div class="container post-show">
-  <h1><%= @post.title %></h1>
-  <h2>by <%= @post.user.email %></h2>
+  <h1><%= @post.title %> | <%= link_to @post.user.email, dev_path(@post.user) %></h1>
   <p><%= @post.content %></p>
 
   <%= render partial: "actions" %>

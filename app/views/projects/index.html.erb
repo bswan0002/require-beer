@@ -1,38 +1,22 @@
 <%= render 'layouts/projects' %>
-<p id="notice"><%= notice %></p>
-
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Title</th>
-      <th>Desc</th>
-      <th>Vidlink</th>
-      <th>Gitlink</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @projects.each do |project| %>
-      <tr>
-        <td><%= project.user.email %></td>
-        <td><%= project.title %></td>
-        <td><%= project.desc %></td>
-        <td><%= project.vidlink %></td>
-        <td><%= project.gitlink %></td>
-        <td><%= link_to 'Show', project %></td>
-        <% if admin? %>
-          <td><%= link_to 'Edit', edit_project_path(project) %></td>
-          <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </tr>
+<div class="container">
+  <h1>Projects</h1>
+  <% if admin? %>
+    <%= button_to 'New Project', new_project_path, method: :get, class: "btn btn-primary" %><br>
+  <% end %>
+  <% i=0; while i<@projects.count-3 %>
+    <div class="row mt-4">
+      <%= render partial: "proj_card", locals: {project: @projects[i]} %>
+      <% i+=1 %>
+      <%= render partial: "proj_card", locals: {project: @projects[i]} %>
+      <% i+=1 %>
+      <%= render partial: "proj_card", locals: {project: @projects[i]} %>
+      <% i+=1 %>
+    </div>
+  <% end %>
+  <div class="row mt-4">
+    <% @last_row.times do |i| %>
+      <%= render partial: "proj_card", locals: {project: @projects[-@last_row+i]} %>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<% if admin? %>
-  <%= link_to 'New Project', new_project_path %>
-<% end %>
+  </div>
+</div>

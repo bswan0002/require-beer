@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
+  before_action :set_last_row, only: [:index]
 
   # GET /projects
   # GET /projects.json
@@ -66,6 +67,10 @@ class ProjectsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_project
       @project = Project.find(params[:id])
+    end
+
+    def set_last_row
+      @last_row = Project.last_row
     end
 
     # Only allow a list of trusted parameters through.

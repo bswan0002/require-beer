@@ -11,27 +11,27 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label "Title:" %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, class: "form-control", placeholder: "Enter title" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label "Description:" %>
-    <%= form.text_area :desc %>
+    <%= form.text_area :desc, class: "form-control", placeholder: "Let them know you're a genius programmer" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label "Youtube URL:" %>
-    <%= form.text_field :vidlink %>
+    <%= form.text_field :vidlink, class: "form-control", placeholder: "Enter url" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label "Github URL:" %>
-    <%= form.text_field :gitlink %>
-  </div>
+    <%= form.text_field :gitlink, class: "form-control", placeholder: "Enter url" %>
+  </div><br>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-primary" %>
   </div>
 <% end %>

@@ -1,15 +1,16 @@
 <%= render 'layouts/devs' %>
+<div class="container">
+  <h1><%= @user.email %></h1>
 
-<h1> Dev: <%= @user.email %> </h1>
+  <h3> Posts </h3>
+  <% @posts.each do |post|  %>
+    <div>
+      <%= link_to post.title, post_path(post) %>  <br />
+    </div>
+  <% end %>
 
-<h3> Dev's posts </h3>
-<% @posts.each do |post|  %>
-  <div>
-    <%= link_to post.title, post_path(post) %>  <br />
-  </div>
-<% end %>
-
-<h3> Dev's projects </h3>
-<% @user.projects.each do |project|  %>
-    <%= link_to project.title, project_path(project) %>  <br />
-<% end %>
+  <h3> Projects </h3>
+  <% @user.projects.each do |project|  %>
+      <%= link_to project.title, project_path(project) %>  <br />
+  <% end %>
+</div>

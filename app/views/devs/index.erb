@@ -1,4 +1,7 @@
 <%= render 'layouts/devs' %>
-<% @users.each do |user| %>
-  <%= link_to user.email, dev_path(user)%>
-<% end %>
+<div class="container">
+  <h1>Devs</h1>
+  <% @users.each do |user| %>
+    <%= link_to user.email, dev_path(user)%>
+  <% end %>
+</div>
