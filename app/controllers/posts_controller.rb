@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy, :like, :unlike]
-  before_action :set_last_row, only: [:index, :sort_by_col]
+  before_action :set_last_row, only: [:index, :sort_by_col, :filter_by_fparam]
   before_action :authenticate_user!, except: [:show, :index, :sort_by_col]
 
   # GET /posts
@@ -97,6 +97,18 @@ class PostsController < ApplicationController
     end
 
     @sort = params[:c]
+    render :index
+  end
+
+  def filter_by_fparam
+    case params[:f]
+    when "my liked posts+fwd"
+      @posts = Post.my_liked_posts(current_user)
+    when "my liked posts+bkwd"
+      @posts = Post.all
+    end
+
+    @filter = params[:f]
     render :index
   end
 

@@ -82,4 +82,8 @@ class Post < ApplicationRecord
     Post.all.sort_by {|p| p.likes.count}.reverse
   end
 
+  def self.my_liked_posts(this_user)
+    this_user.likes.map {|like| like.post}
+  end
+
 end

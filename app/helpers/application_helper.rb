@@ -17,4 +17,15 @@ module ApplicationHelper
       link_to column.titleize, sort_by_col_path(c: "#{column}_#{new_dir}"), {:class => css_class}
   end
 
+  def filterable(fparam)
+    if @filter && @filter.include?(fparam)
+      dir = @filter.split("+").last
+      dir == "fwd" ? new_dir = "bkwd" : new_dir = "fwd"
+    else
+      new_dir = "fwd"
+    end
+    css_class = "current"
+    link_to fparam.titleize, filter_by_fparam_path(f: "#{fparam}+#{new_dir}"), {:class => css_class}
+  end
+
 end
