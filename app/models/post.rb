@@ -39,6 +39,7 @@ class Post < ApplicationRecord
 
   def self.last_row
     post_count = Post.all.count
+    return 0 if post_count < 3
     case post_count%3
     when 0
       return 3
@@ -80,5 +81,5 @@ class Post < ApplicationRecord
   def self.likes_desc
     Post.all.sort_by {|p| p.likes.count}.reverse
   end
-  
+
 end

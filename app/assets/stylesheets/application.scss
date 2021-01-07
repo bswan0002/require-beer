@@ -87,12 +87,22 @@ body {
 
   .card-body {
     background: #333;
+
+    a {
+      text-decoration: none;
+    }
   }
 }
 
 .card:hover {
   border-color: #AAFF2A;
 }
+
+button.trix-button {
+  background: #B7B7B7;
+}
+
+
 
 // .navbar-custom {
 //   background-color: red !important;
