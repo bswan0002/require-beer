@@ -32,6 +32,7 @@ a:hover {
 body {
   background: #232425;
   color: #fff;
+  font-family: 'Ubuntu', sans-serif;
 }
 
 .container.post-show {
@@ -39,6 +40,13 @@ body {
   border-style: solid;
   border-width: thin;
   border-color: #AAFF2A;
+  padding-top: var(--bs-gutter-x,.25rem);
+  padding-bottom: var(--bs-gutter-x,1rem);
+  padding-right: var(--bs-gutter-x,1rem);
+  padding-left: var(--bs-gutter-x,1rem);
+  margin-top: 50px;
+  margin-bottom: 50px;
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
 }
 
 .btn-primary {
@@ -53,6 +61,26 @@ body {
   background: #82C223;
   border-color: #82C223;
   color: white;
+}
+
+.btn-success {
+  background: #3da286;
+  border-color: #3da286;
+}
+
+.btn-success:hover {
+  background: #2f856c;
+  border-color: #2f856c;
+}
+
+.btn-danger {
+  background: #cf0068;
+  border-color: #cf0068;
+}
+
+.btn-danger:hover {
+  background: #aa0055;
+  border-color: #aa0055;
 }
 
 .navbar {
@@ -106,8 +134,17 @@ button.trix-button {
   background: #B7B7B7;
 }
 
+.trix-content pre {
+  background-color: #424242;
+}
+
+.trix-content .attachment--preview .attachment__caption {
+  color: rgb(172, 172, 172);
+}
 
 
 // .navbar-custom {
 //   background-color: red !important;
 //  }
+// 
+// div.trix-button-row should scroll with user creating/editing longer posts

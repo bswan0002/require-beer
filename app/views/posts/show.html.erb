@@ -1,7 +1,7 @@
 <%= render 'layouts/posts' %>
 <div class="container">
   <div class="container post-show">
-    <h1><%= @post.title %> | <%= link_to @post.user.email, dev_path(@post.user) %></h1>
+    <h1><font><%= @post.title %></font> | <%= link_to @post.user.email, dev_path(@post.user) %></h1>
     <p><%= @post.content %></p>
     <hr>
 

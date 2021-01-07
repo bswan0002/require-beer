@@ -66,20 +66,22 @@ class Post < ApplicationRecord
     Post.all.sort_by {|p| p.user.email}.reverse
   end
 
+  #I recognize method name and activerecord sort don't match,
+  #but I want first click w/ up arrow sorting newest to oldest
   def self.published_asc
-    Post.order('created_at ASC')
-  end
-
-  def self.published_desc
     Post.order('created_at DESC')
   end
 
+  def self.published_desc
+    Post.order('created_at ASC')
+  end
+
   def self.likes_asc
-    Post.all.sort_by {|p| p.likes.count}
+    Post.all.sort_by {|p| p.likes.count}.reverse
   end
 
   def self.likes_desc
-    Post.all.sort_by {|p| p.likes.count}.reverse
+    Post.all.sort_by {|p| p.likes.count}
   end
 
   def self.my_liked_posts(this_user)
