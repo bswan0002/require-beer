@@ -141,10 +141,16 @@ button.trix-button {
 .trix-content .attachment--preview .attachment__caption {
   color: rgb(172, 172, 172);
 }
-
+.carousel-item {
+  height: 450px;
+}
+.carousel-image-1 {
+  background: url('https://www.cornwallbusinessawards.co.uk/wp-content/uploads/2017/12/typing-on-a-mac.jpg');
+  background-size: cover;
+}
 
 // .navbar-custom {
 //   background-color: red !important;
 //  }
-// 
+//
 // div.trix-button-row should scroll with user creating/editing longer posts
