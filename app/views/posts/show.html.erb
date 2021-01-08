@@ -1,19 +1,21 @@
 <%= render 'layouts/posts' %>
-<div class="container post-show">
-  <h1><%= @post.title %> | <%= link_to @post.user.email, dev_path(@post.user) %></h1>
-  <p><%= @post.content %></p>
+<div class="container">
+  <div class="container post-show">
+    <h1><font><%= @post.title %></font> | <%= link_to @post.user.email, dev_path(@post.user) %></h1>
+    <p><%= @post.content %></p>
+    <hr>
 
-  <%= render partial: "actions" %>
+    <%= render partial: "actions" %>
 
-  <% if user_signed_in? %>
-    <%= render partial: "like" %>
-    <%= render partial: "comment_form" %>
-  <% end %><br>
+    <% if user_signed_in? %>
+      <%= render partial: "comment_form" %>
+    <% end %><br>
 
-  <h3>Comments</h3>
-  <% @comments.each do |comment| %>
-    <% if comment.user %>
-      <%= "#{comment.user.email}: #{comment.body}" %><br>
+    <h3>Comments</h3>
+    <% @comments.each do |comment| %>
+      <% if comment.user %>
+        <%= "#{comment.user.email}: #{comment.body}" %><br>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 </div>

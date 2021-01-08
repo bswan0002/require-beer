@@ -1,3 +1,4 @@
+<div class="row row-cols-auto mt-2">
 <%= form_for([@post, @post.comments.build]) do |f| %>
 
   <% if @comment && @comment.errors.any? %>
@@ -17,6 +18,7 @@
     <%= f.text_area :body %>
   </div>
   <div class="actions">
-    <%= f.submit "Comment" %>
+    <%= f.submit "Submit", class: "btn btn-primary" %>
   </div>
 <% end %>
+</div>

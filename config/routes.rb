@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   get '/posts/sort_by_col', to: 'posts#sort_by_col', as: 'sort_by_col'
+  get '/posts/filter_by_fparam', to: 'posts#filter_by_fparam', as: 'filter_by_fparam'
 
   resources :devs, only: [:index, :show]
   resources :projects

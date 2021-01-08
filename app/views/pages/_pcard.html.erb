@@ -1,0 +1,14 @@
+<div class="col-sm">
+  <div class="card">
+    <div class="card-header">
+      <%= @featured_post.user.email %>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title"><%= link_to @featured_post.title, @featured_post, class: "stretched-link" %></h5>
+      <p class="card-text"><%= @featured_post.preview %></p>
+      <div class="text-end">
+        <p class="card-text"><small><%= "Likes: #{@featured_post.like_count} | #{@featured_post.published}" %></p></small>
+      </div>
+    </div>
+  </div>
+</div>

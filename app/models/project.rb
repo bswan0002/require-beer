@@ -23,6 +23,10 @@ class Project < ApplicationRecord
     self.created_at.strftime("%b. %d %Y")
   end
 
+  def self.most_recent
+    Project.all.last
+  end
+
   def self.last_row
     project_count = Project.all.count
     return 0 if project_count < 3

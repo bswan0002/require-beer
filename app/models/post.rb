@@ -33,6 +33,11 @@ class Post < ApplicationRecord
     self.likes.count
   end
 
+  def self.most_liked
+    Post.all.max_by{|p| p.like_count}
+  end
+
+
   def published
     self.created_at.strftime("%b. %d %Y")
   end
@@ -66,20 +71,26 @@ class Post < ApplicationRecord
     Post.all.sort_by {|p| p.user.email}.reverse
   end
 
+  #I recognize method name and activerecord sort don't match,
+  #but I want first click w/ up arrow sorting newest to oldest
   def self.published_asc
-    Post.order('created_at ASC')
-  end
-
-  def self.published_desc
     Post.order('created_at DESC')
   end
 
+  def self.published_desc
+    Post.order('created_at ASC')
+  end
+
   def self.likes_asc
-    Post.all.sort_by {|p| p.likes.count}
+    Post.all.sort_by {|p| p.likes.count}.reverse
   end
 
   def self.likes_desc
-    Post.all.sort_by {|p| p.likes.count}.reverse
+    Post.all.sort_by {|p| p.likes.count}
+  end
+
+  def self.my_liked_posts(this_user)
+    this_user.likes.map {|like| like.post}
   end
 
 end

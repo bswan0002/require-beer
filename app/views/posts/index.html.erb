@@ -1,10 +1,19 @@
 <%= render 'layouts/posts' %>
 <div class="container">
   <h1>Posts</h1>
-  <% if admin? %>
-    <%= button_to 'New Post', new_post_path, method: :get, class: "btn btn-primary" %><br>
-  <% end %>
+  <div class="row mb-1">
+    <% if admin? %>
+      <div class="col-sm"><%= button_to 'New Post', new_post_path, method: :get, class: "btn btn-primary" %></div>
+    <% end %>
+  </div>
   <%= render partial: "sort" %>
+  <% if @posts.count <= 3 %>
+    <div class="row mt-4">
+      <% @posts.count.times do |i| %>
+        <%= render partial: "pcard", locals: {post: @posts[i]} %>
+      <% end %>
+    </div>
+  <% else %>
   <% i=0; while i<@posts.count-3 %>
     <div class="row mt-4">
       <%= render partial: "pcard", locals: {post: @posts[i]} %>
@@ -20,4 +29,5 @@
       <%= render partial: "pcard", locals: {post: @posts[-@last_row+i]} %>
     <% end %>
   </div>
+  <% end %>
 </div>

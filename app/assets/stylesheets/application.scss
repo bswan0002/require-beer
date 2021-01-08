@@ -1,16 +1,20 @@
 @import 'trix/dist/trix.css';
 
 .pretty th .current {
-  padding-right: 20px;
+  padding-right: 32px;
   background-repeat: no-repeat;
   background-position: right center;
 }
 .pretty th .asc {
-  background-image: url(https://icons.iconarchive.com/icons/icons8/ios7/24/Arrows-Up-icon.png);
+  background-image: asset-url("baseline_keyboard_arrow_up_white_18dp.png");
 }
 
 .pretty th .desc {
-  background-image: url(https://icons.iconarchive.com/icons/icons8/ios7/24/Arrows-Down-icon.png);
+  background-image: asset-url("baseline_keyboard_arrow_down_white_18dp.png");
+}
+
+.pretty th .filtered {
+  background-image: asset-url("baseline_filter_alt_white_18dp.png");
 }
 
 th {
@@ -28,6 +32,7 @@ a:hover {
 body {
   background: #232425;
   color: #fff;
+  font-family: 'Ubuntu', sans-serif;
 }
 
 .container.post-show {
@@ -35,6 +40,13 @@ body {
   border-style: solid;
   border-width: thin;
   border-color: #AAFF2A;
+  padding-top: var(--bs-gutter-x,.25rem);
+  padding-bottom: var(--bs-gutter-x,1rem);
+  padding-right: var(--bs-gutter-x,1rem);
+  padding-left: var(--bs-gutter-x,1rem);
+  margin-top: 50px;
+  margin-bottom: 50px;
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
 }
 
 .btn-primary {
@@ -49,6 +61,26 @@ body {
   background: #82C223;
   border-color: #82C223;
   color: white;
+}
+
+.btn-success {
+  background: #3da286;
+  border-color: #3da286;
+}
+
+.btn-success:hover {
+  background: #2f856c;
+  border-color: #2f856c;
+}
+
+.btn-danger {
+  background: #cf0068;
+  border-color: #cf0068;
+}
+
+.btn-danger:hover {
+  background: #aa0055;
+  border-color: #aa0055;
 }
 
 .navbar {
@@ -102,16 +134,52 @@ button.trix-button {
   background: #B7B7B7;
 }
 
-.
+.trix-content pre {
+  background-color: #424242;
+}
+
+.trix-content .attachment--preview .attachment__caption {
+  color: rgb(172, 172, 172);
+}
+
 .carousel-item {
   height: 450px;
 }
-
 .carousel-image-1 {
-  background: url('https://www.cornwallbusinessawards.co.uk/wp-content/uploads/2017/12/typing-on-a-mac.jpg');
+  background-image: asset-url("image-1.5.1.jpg");
   background-size: cover;
 }
 
-// .navbar-custom {
-//   background-color: red !important;
-//  }
+.carousel-image-2 {
+  background-image: asset-url('image-2.jpeg');
+  background-size: cover;
+}
+
+.carousel-image-3 {
+  background-image: asset-url('image-1.jpg');
+  background-size: cover;
+}
+
+#logo-4 {
+  width: 100px;
+}
+
+#logo {
+  width: 30px;
+}
+
+.col.featured {
+  text-align: center;
+}
+
+.col-sm.home-button {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+#footer-page {
+  background: #000A14 !important;
+}
+
+
+// div.trix-button-row should scroll with user creating/editing longer posts
