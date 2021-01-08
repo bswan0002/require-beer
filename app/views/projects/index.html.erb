@@ -4,19 +4,8 @@
   <% if admin? %>
     <%= button_to 'New Project', new_project_path, method: :get, class: "btn btn-primary" %><br>
   <% end %>
-  <% i=0; while i<@projects.count-3 %>
-    <div class="row mt-4">
-      <%= render partial: "proj_card", locals: {project: @projects[i]} %>
-      <% i+=1 %>
-      <%= render partial: "proj_card", locals: {project: @projects[i]} %>
-      <% i+=1 %>
-      <%= render partial: "proj_card", locals: {project: @projects[i]} %>
-      <% i+=1 %>
-    </div>
+  <% i=0; while i<@projects.count %>
+    <%= render partial: "proj_card", locals: {i: i} %>
+    <% i+=3 %>
   <% end %>
-  <div class="row mt-4">
-    <% @last_row.times do |i| %>
-      <%= render partial: "proj_card", locals: {project: @projects[-@last_row+i]} %>
-    <% end %>
-  </div>
 </div>

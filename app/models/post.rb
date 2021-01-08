@@ -2,8 +2,8 @@ class Post < ApplicationRecord
   has_rich_text :content
 
   belongs_to :user
-  has_many :likes
-  has_many :comments
+  has_many :likes, :dependent => :delete_all
+  has_many :comments, :dependent => :delete_all
   has_many :users, through: :likes
   has_many :users, through: :comments
 

@@ -1,0 +1,7 @@
+<div class="row row-cols-auto">
+  <div class="col"><%= button_to 'Back', projects_path, method: :get, class: "btn btn-secondary" %></div>
+  <% if admin? %>
+    <div class="col"><%= button_to 'Edit', edit_project_path(@project), method: :get, class: "btn btn-primary" %></div>
+    <div class="col"><%= button_to 'Delete', @project, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></div>
+  <% end %>
+</div>

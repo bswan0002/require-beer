@@ -1,11 +1,17 @@
-<div class="col-sm">
-  <div class="card">
-    <div class="card-header">
-      <%= project.user.email %>
-    </div>
-    <div class="card-body">
-      <h5 class="card-title"><%= link_to project.title, project, class: "stretched-link" %></h5>
-      <p class="card-text"><%= project.preview %></p>
-    </div>
-  </div>
+<div class="row mt-4">
+  <% 3.times do |j| %>
+    <% if @projects[i+j] %>
+      <div class="col-sm">
+        <div class="card">
+          <div class="card-header">
+            <%= @projects[i+j].user.email %>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"><%= link_to @projects[i+j].title, @projects[i+j], class: "stretched-link" %></h5>
+            <p class="card-text"><%= @projects[i+j].preview %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
 </div>

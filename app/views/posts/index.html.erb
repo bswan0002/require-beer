@@ -10,27 +10,8 @@
   <% if admin? %>
     <%= render partial: "admin_sort" %>
   <% end %>
-  <% if @posts.count <= 3 %>
-    <div class="row mt-4">
-      <% @posts.count.times do |i| %>
-        <%= render partial: "pcard", locals: {post: @posts[i]} %>
-      <% end %>
-    </div>
-  <% else %>
-  <% i=0; while i<@posts.count-3 %>
-    <div class="row mt-4">
-      <%= render partial: "pcard", locals: {post: @posts[i]} %>
-      <% i+=1 %>
-      <%= render partial: "pcard", locals: {post: @posts[i]} %>
-      <% i+=1 %>
-      <%= render partial: "pcard", locals: {post: @posts[i]} %>
-      <% i+=1 %>
-    </div>
-  <% end %>
-  <div class="row mt-4">
-    <% @last_row.times do |i| %>
-      <%= render partial: "pcard", locals: {post: @posts[-@last_row+i]} %>
-    <% end %>
-  </div>
+  <% i=0; while i<@posts.count %>
+    <%= render partial: "3pcard", locals: {i: i} %>
+    <% i += 3 %>
   <% end %>
 </div>
