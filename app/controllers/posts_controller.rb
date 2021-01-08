@@ -94,6 +94,10 @@ class PostsController < ApplicationController
       @posts = Post.likes_asc
     when "likes_desc"
       @posts = Post.likes_desc
+    when "comment to like ratio_asc"
+      @posts = Post.all.sort_by {|p| p.ctlr}.reverse
+    when "comment to like ratio_desc"
+      @posts = Post.all.sort_by {|p| p.ctlr}
     end
 
     @sort = params[:c]

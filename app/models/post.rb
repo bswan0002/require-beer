@@ -93,4 +93,11 @@ class Post < ApplicationRecord
     this_user.likes.map {|like| like.post}
   end
 
+  #comment to like ratio[admin only], if high might indicate
+  #inflammatory/incorrect content
+  def ctlr
+    self.likes.count == 0 ? likes = 1 : likes = self.likes.count
+    return self.comments.count / likes
+  end
+
 end

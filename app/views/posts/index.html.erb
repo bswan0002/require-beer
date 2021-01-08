@@ -7,6 +7,9 @@
     <% end %>
   </div>
   <%= render partial: "sort" %>
+  <% if admin? %>
+    <%= render partial: "admin_sort" %>
+  <% end %>
   <% if @posts.count <= 3 %>
     <div class="row mt-4">
       <% @posts.count.times do |i| %>
