@@ -42,19 +42,6 @@ class Post < ApplicationRecord
     self.created_at.strftime("%b. %d %Y")
   end
 
-  def self.last_row
-    post_count = Post.all.count
-    return 0 if post_count < 3
-    case post_count%3
-    when 0
-      return 3
-    when 1
-      return 1
-    when 2
-      return 2
-    end
-  end
-
   def self.title_asc
     Post.order('title ASC')
   end

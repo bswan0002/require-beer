@@ -27,16 +27,4 @@ class Project < ApplicationRecord
     Project.all.last
   end
 
-  def self.last_row
-    project_count = Project.all.count
-    return 0 if project_count < 3
-    case project_count%3
-    when 0
-      return 3
-    when 1
-      return 1
-    when 2
-      return 2
-    end
-  end
 end
