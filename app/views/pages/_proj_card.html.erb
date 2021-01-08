@@ -1,0 +1,14 @@
+<div class="col-sm">
+  <div class="card">
+    <div class="card-header">
+      <%= @featured_project.user.email %>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title"><%= link_to @featured_project.title, @featured_project, class: "stretched-link" %></h5>
+      <p class="card-text"><%= @featured_project.preview %></p>
+      <div class="text-end">
+        <p class="card-text"><small><%= "#{@featured_project.published}" %></p></small>
+      </div>
+    </div>
+  </div>
+</div>

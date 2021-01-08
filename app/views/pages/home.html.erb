@@ -1,25 +1,18 @@
 <%= render 'layouts/header' %>
 <%= render 'layouts/home' %>
 <div class="container">
-  <h1>Home</h1>
-  <div class="row row-cols-auto">
-    <% if current_user %>
-      <div class="col"><%= button_to 'Sign out', destroy_user_session_path, method: :delete, class: "btn btn-danger" %></div>
-    <% else %>
-      <div class="col"><%= button_to 'Sign up', new_user_registration_path, class: "btn btn-primary" %></div>
 
-      <div class="col"><%= button_to 'Sign in', new_user_session_path, class: "btn btn-primary" %></div>
-    <% end %>
+  <div class="row mt-4">
+    <div class="col featured"><h2>Featured Post</h2></div>
+    <div class="col featured"><h2>Featured Project</h2></div>
   </div>
+  <hr>
+  <div class="row mt-4">
+    <%= render "pcard" %>
+    <%= render "proj_card" %>
+  </div>
+  <div class="row mt-4" style="text-align: center"> <h2>About</h2> </div>
+  <div class="row mt-4"> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a arcu vel enim finibus pellentesque. Mauris in lectus velit. Proin malesuada sapien ut dolor tincidunt, sit amet condimentum neque consectetur. Vestibulum a commodo nibh. Etiam nulla nulla, ullamcorper quis sem sit amet, consectetur aliquam orci. Curabitur id est nunc. Nam posuere dolor eu mi rutrum congue. Curabitur fringilla tincidunt urna sit amet fringilla. In mattis tincidunt lectus eu pellentesque. Quisque risus nibh, laoreet mattis finibus vel, feugiat quis mauris. Integer scelerisque nibh nec tellus tincidunt accumsan. Curabitur gravida, enim id varius iaculis, nisi enim pellentesque tortor, eget lacinia ante elit et velit. Etiam imperdiet diam id volutpat tempor. Pellentesque vulputate consequat eros sed scelerisque. Curabitur vitae tincidunt orci. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.  </p>  </div>
 </div>
 
-<!-- <div class="card">
-  <div class="card-header">
-    Card header
-  </div>
-  <div class="card-body">
-    <h5 class="card-title">Card Title</h5>
-    <p class="card-text">Card text</p>
-    <a href="#" class="btn btn-primary">Do Something</a>
-  </div>
-</div> -->
+<%= render 'layouts/footer' %>

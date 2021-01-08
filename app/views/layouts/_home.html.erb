@@ -1,45 +1,54 @@
 <section id="showcase">
-  <div class="dark-overlay"
-  <div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-inidcators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"> </li>
-      <li data-target="#myCarousel" data-slide-to="1"> </li>
-      <li data-target="#myCarousel" data-slide-to="2"> </li>
-    </ol>
-    <div class="carousel-inner">
-      <div class="carousel-item carousel-image-1 active">
-        <div class="container">
-          <div class="carousel-caption d-none d-sm-block text-left">
-            <h1 class="display-3"> Test </h1>
-            <p class="lead">
-              Hello world hello there
-            </p>
-            <a href="#" class="btn btn-danger btn-lg"> Sign In</a>
+  <div class="dark-overlay">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"> </li>
+        <li data-target="#myCarousel" data-slide-to="1"> </li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item carousel-image-1 active">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1 class="display-3"> Welcome </h1>
+              <p class="lead">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              </p>
+              <div class="row justify-content-center">
+
+                  <% if current_user %>
+                    <div class="col"><%= button_to 'Sign out', destroy_user_session_path, method: :delete, class: "btn btn-danger" %></div>
+                  <% else %>
+                    <div class="col-4"></div>
+                    <div class="col"><%= button_to 'Sign up', new_user_registration_path, method: :get, class: "btn btn-primary" %></div>
+
+
+                    <div class="col"><%= button_to 'Sign in', new_user_session_path, class: "btn btn-primary" %></div>
+                    <div class="col-4"></div>
+                  <% end %>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item carousel-image-2">
+          <div class="container">
+            <div class="carousel-caption d-none d-sm-block text-left">
+              <h1 class="display-3"> Just For Show </h1>
+              <p class="lead">
+                Can't see this right now
+              </p>
+            </div>
           </div>
         </div>
       </div>
-      <div class="carousel-item carousel-image-2">
-        <div class="container">
-          <div class="carousel-caption d-none d-sm-block text-left">
-            <h1 class="display-3"> Test </h1>
-            <p class="lead">
-              Hello world hello there
-            </p>
-            <a href="#" class="btn btn-danger btn-lg"> Sign In</a>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item carousel-image-3">
-        <div class="container">
-          <div class="carousel-caption d-none d-sm-block text-left">
-            <h1 class="display-3"> Test </h1>
-            <p class="lead">
-              Hello world hello there
-            </p>
-            <a href="#" class="btn btn-danger btn-lg"> Sign In</a>
-          </div>
-        </div>
-      </div>
+
+      <a href="#myCarousel" data-slide="next" class="carousel-control-next">
+        <span class="carousel-control-next-icon"> </span>
+      </a>
+
+      <a href="#myCarousel" data-slide="prev" class="carousel-control-prev">
+        <span class="carousel-control-prev-icon"> </span>
+      </a>
     </div>
   </div>
 </section>

@@ -33,6 +33,11 @@ class Post < ApplicationRecord
     self.likes.count
   end
 
+  def self.most_liked
+    Post.all.max_by{|p| p.like_count}
+  end
+
+
   def published
     self.created_at.strftime("%b. %d %Y")
   end

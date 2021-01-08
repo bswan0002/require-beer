@@ -141,16 +141,45 @@ button.trix-button {
 .trix-content .attachment--preview .attachment__caption {
   color: rgb(172, 172, 172);
 }
+
 .carousel-item {
   height: 450px;
 }
 .carousel-image-1 {
-  background: url('https://www.cornwallbusinessawards.co.uk/wp-content/uploads/2017/12/typing-on-a-mac.jpg');
+  background-image: asset-url("image-1.5.1.jpg");
   background-size: cover;
 }
 
-// .navbar-custom {
-//   background-color: red !important;
-//  }
-//
+.carousel-image-2 {
+  background-image: asset-url('image-2.jpeg');
+  background-size: cover;
+}
+
+.carousel-image-3 {
+  background-image: asset-url('image-1.jpg');
+  background-size: cover;
+}
+
+#logo-4 {
+  width: 100px;
+}
+
+#logo {
+  width: 30px;
+}
+
+.col.featured {
+  text-align: center;
+}
+
+.col-sm.home-button {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+#footer-page {
+  background: #000A14 !important;
+}
+
+
 // div.trix-button-row should scroll with user creating/editing longer posts
