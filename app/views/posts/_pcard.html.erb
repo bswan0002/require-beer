@@ -7,8 +7,15 @@
       <h5 class="card-title"><%= link_to post.title, post, class: "stretched-link" %></h5>
       <p class="card-text"><%= post.preview %></p>
       <div class="text-end">
-        <p class="card-text"><small><%= "Likes: #{post.like_count} | #{post.published}" %></p></small>
+        <p class="card-text"><small>
+          <% if admin? %>
+            <%= "Comment/Like Ratio: #{post.ctlr} | Likes: #{post.like_count} | #{post.published}" %>
+          <% else %>
+            <%= "Likes: #{post.like_count} | #{post.published}" %>
+          <% end %>
+        </p></small>
       </div>
     </div>
   </div>
 </div>
+
